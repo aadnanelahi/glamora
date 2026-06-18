@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+:root {
+  --glamora-primary: #4c6ef5;
+  --glamora-primary-hover: #4263eb;
+  --glamora-accent: #e64980;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.ltr {
+  direction: ltr;
+  text-align: left;
+}

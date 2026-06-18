@@ -1,0 +1,72 @@
+{
+  "app": {
+    "name": "Glamora",
+    "tagline": "Salon & Spa Management Platform"
+  },
+  "auth": {
+    "login": "Sign in to your account",
+    "register": "Create your account",
+    "email": "Email address",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "nameEn": "Full name (English)",
+    "nameAr": "Full name (Arabic)",
+    "companyNameEn": "Company name (English)",
+    "companyNameAr": "Company name (Arabic)",
+    "phone": "Phone number",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "signUp": "Sign up",
+    "signIn": "Sign in",
+    "signingIn": "Signing in...",
+    "signingUp": "Creating account...",
+    "logout": "Sign out",
+    "rememberMe": "Remember me",
+    "or": "or",
+    "subdomain": "Company subdomain",
+    "profile": "Profile"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "overview": "Overview",
+    "appointments": "Appointments",
+    "clients": "Clients",
+    "staff": "Staff",
+    "inventory": "Inventory",
+    "accounts": "Accounts",
+    "reports": "Reports",
+    "settings": "Settings",
+    "todayRevenue": "Today's Revenue",
+    "pendingAppointments": "Pending Appointments",
+    "totalClients": "Total Clients",
+    "activeStaff": "Active Staff",
+    "compareLastPeriod": "vs last period"
+  },
+  "common": {
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "search": "Search",
+    "filter": "Filter",
+    "export": "Export",
+    "print": "Print",
+    "noData": "No data available",
+    "error": "Something went wrong",
+    "success": "Success",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "required": "Required"
+  },
+  "validation": {
+    "required": "This field is required",
+    "email": "Please enter a valid email",
+    "minLength": "Must be at least {min} characters",
+    "passwordMatch": "Passwords must match"
+  }
+}

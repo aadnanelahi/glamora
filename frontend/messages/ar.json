@@ -1,0 +1,72 @@
+{
+  "app": {
+    "name": "جلامورا",
+    "tagline": "منصة إدارة صالونات التجميل والمنتجعات"
+  },
+  "auth": {
+    "login": "تسجيل الدخول إلى حسابك",
+    "register": "إنشاء حسابك",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "nameEn": "الاسم الكامل (بالإنجليزية)",
+    "nameAr": "الاسم الكامل (بالعربية)",
+    "companyNameEn": "اسم الشركة (بالإنجليزية)",
+    "companyNameAr": "اسم الشركة (بالعربية)",
+    "phone": "رقم الهاتف",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "noAccount": "ليس لديك حساب؟",
+    "haveAccount": "لديك حساب بالفعل؟",
+    "signUp": "إنشاء حساب",
+    "signIn": "تسجيل الدخول",
+    "signingIn": "جارٍ تسجيل الدخول...",
+    "signingUp": "جارٍ إنشاء الحساب...",
+    "logout": "تسجيل الخروج",
+    "rememberMe": "تذكرني",
+    "or": "أو",
+    "subdomain": "النطاق الفرعي للشركة",
+    "profile": "الملف الشخصي"
+  },
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "overview": "نظرة عامة",
+    "appointments": "المواعيد",
+    "clients": "العملاء",
+    "staff": "الموظفون",
+    "inventory": "المخزون",
+    "accounts": "الحسابات",
+    "reports": "التقارير",
+    "settings": "الإعدادات",
+    "todayRevenue": "إيرادات اليوم",
+    "pendingAppointments": "المواعيد المعلقة",
+    "totalClients": "إجمالي العملاء",
+    "activeStaff": "الموظفون النشطون",
+    "compareLastPeriod": "مقارنة بالفترة السابقة"
+  },
+  "common": {
+    "loading": "جارٍ التحميل...",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "create": "إنشاء",
+    "search": "بحث",
+    "filter": "تصفية",
+    "export": "تصدير",
+    "print": "طباعة",
+    "noData": "لا توجد بيانات",
+    "error": "حدث خطأ ما",
+    "success": "تم بنجاح",
+    "confirm": "تأكيد",
+    "back": "رجوع",
+    "next": "التالي",
+    "submit": "إرسال",
+    "required": "مطلوب"
+  },
+  "validation": {
+    "required": "هذا الحقل مطلوب",
+    "email": "يرجى إدخال بريد إلكتروني صحيح",
+    "minLength": "يجب أن يكون على الأقل {min} أحرف",
+    "passwordMatch": "يجب أن تتطابق كلمات المرور"
+  }
+}
