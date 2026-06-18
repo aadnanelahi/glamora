@@ -3,20 +3,11 @@
 import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import { Layout, Menu, Button, Avatar, Dropdown, Typography, theme, Space, Grid } from 'antd';
+import { Layout, Menu, Button, Avatar, Dropdown, Typography, Space, Grid } from 'antd';
 import {
-  DashboardOutlined,
-  CalendarOutlined,
-  TeamOutlined,
-  UserOutlined,
-  ShoppingCartOutlined,
-  DollarOutlined,
-  BarChartOutlined,
-  SettingOutlined,
-  LogoutOutlined,
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  GlobalOutlined,
+  DashboardOutlined, CalendarOutlined, TeamOutlined, UserOutlined,
+  ShoppingCartOutlined, DollarOutlined, BarChartOutlined, SettingOutlined,
+  LogoutOutlined, MenuFoldOutlined, MenuUnfoldOutlined, GlobalOutlined,
 } from '@ant-design/icons';
 import { useAuthStore } from '@/lib/store/auth-store';
 import { api } from '@/lib/api/client';
@@ -75,11 +66,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   const selectedKey = menuItems.find((item) => pathname.startsWith(item.href))?.key || 'dashboard';
 
   if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <Text>{c('loading')}</Text>
-      </div>
-    );
+    return <div className="min-h-screen flex items-center justify-center"><Text>{c('loading')}</Text></div>;
   }
 
   if (!isAuthenticated) return null;
@@ -87,77 +74,41 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   return (
     <Layout className="min-h-screen">
       {!isMobile && (
-        <Sider
-          collapsible
-          collapsed={collapsed}
-          onCollapse={setCollapsed}
-          theme="light"
-          className="border-r border-gray-200"
-          width={240}
-        >
+        <Sider collapsible collapsed={collapsed} onCollapse={setCollapsed} theme="light" className="border-r border-gray-200" width={240}>
           <div className={`p-4 flex items-center gap-2 ${collapsed ? 'justify-center' : ''}`}>
-            <Avatar size={collapsed ? 28 : 32} style={{ backgroundColor: '#4c6ef5' }}>
-              G
-            </Avatar>
+            <Avatar size={collapsed ? 28 : 32} style={{ backgroundColor: '#4c6ef5' }}>G</Avatar>
             {!collapsed && <Text strong className="text-lg">Glamora</Text>}
           </div>
-          <Menu
-            mode="inline"
-            selectedKeys={[selectedKey]}
-            items={menuItems.map((item) => ({
-              key: item.key,
-              icon: item.icon,
-              label: item.label,
-              onClick: () => router.push(item.href),
-            }))}
-          />
+          <Menu mode="inline" selectedKeys={[selectedKey]} items={menuItems.map((item) => ({ key: item.key, icon: item.icon, label: item.label, onClick: () => router.push(item.href) }))} />
         </Sider>
       )}
 
       <Layout>
         <Header className="bg-white px-4 flex items-center justify-between border-b border-gray-200" style={{ padding: '0 16px' }}>
           <Space>
-            {isMobile && (
-              <Button
-                type="text"
-                icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-                onClick={() => setCollapsed(!collapsed)}
-              />
-            )}
+            {isMobile && <Button type="text" icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />} onClick={() => setCollapsed(!collapsed)} />}
             {isMobile && <Text strong>Glamora</Text>}
           </Space>
 
           <Space size="middle">
-            <Button
-              type="text"
-              icon={<GlobalOutlined />}
-              onClick={toggleLanguage}
-            >
+            <Button type="text" icon={<GlobalOutlined />} onClick={toggleLanguage}>
               {locale === 'en' ? 'عربي' : 'English'}
             </Button>
 
-            <Dropdown
-              menu={{
-                items: [
-                  { key: 'profile', icon: <UserOutlined />, label: user?.name_en || '' },
-                  { type: 'divider' },
-                  { key: 'logout', icon: <LogoutOutlined />, label: t('logout') || c('logout') || 'Logout', danger: true, onClick: handleLogout },
-                ],
-              }}
-            >
+            <Dropdown menu={{ items: [
+              { key: 'profile', icon: <UserOutlined />, label: user?.name_en || '' },
+              { type: 'divider' },
+              { key: 'logout', icon: <LogoutOutlined />, label: t('logout') || 'Logout', danger: true, onClick: handleLogout },
+            ]}}>
               <Space className="cursor-pointer">
-                <Avatar src={null} style={{ backgroundColor: '#4c6ef5' }}>
-                  {user?.name_en?.charAt(0)?.toUpperCase() || 'G'}
-                </Avatar>
+                <Avatar src={null} style={{ backgroundColor: '#4c6ef5' }}>{user?.name_en?.charAt(0)?.toUpperCase() || 'G'}</Avatar>
                 {!isMobile && <Text>{user?.name_en}</Text>}
               </Space>
             </Dropdown>
           </Space>
         </Header>
 
-        <Content className="p-6 bg-gray-50">
-          {children}
-        </Content>
+        <Content className="p-6 bg-gray-50">{children}</Content>
       </Layout>
     </Layout>
   );

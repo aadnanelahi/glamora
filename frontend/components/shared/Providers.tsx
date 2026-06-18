@@ -31,7 +31,7 @@ export default function Providers({
           },
         }}
       >
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
         </NextIntlClientProvider>
       </ConfigProvider>

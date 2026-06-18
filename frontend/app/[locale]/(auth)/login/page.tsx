@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
-import { Card, Form, Input, Button, Typography, Divider, message, Space } from 'antd';
+import { Card, Form, Input, Button, Typography, Divider, message } from 'antd';
 import { MailOutlined, LockOutlined, GlobalOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 import { api } from '@/lib/api/client';
@@ -42,22 +42,13 @@ export default function LoginPage() {
   };
 
   return (
-    <Card
-      className="shadow-lg"
-      styles={{ body: { padding: '2rem' } }}
-    >
+    <Card className="shadow-lg" styles={{ body: { padding: '2rem' } }}>
       <div className="text-center mb-8">
         <Title level={2} className="mb-1">{t('login')}</Title>
         <Text type="secondary">Glamora</Text>
       </div>
 
-      <Form
-        form={form}
-        layout="vertical"
-        onFinish={handleLogin}
-        autoComplete="off"
-        requiredMark={false}
-      >
+      <Form form={form} layout="vertical" onFinish={handleLogin} autoComplete="off" requiredMark={false}>
         <Form.Item
           name="email"
           label={t('email')}
@@ -66,11 +57,7 @@ export default function LoginPage() {
             { type: 'email', message: 'validation.email' },
           ]}
         >
-          <Input
-            prefix={<MailOutlined />}
-            placeholder="owner@salon.com"
-            size="large"
-          />
+          <Input prefix={<MailOutlined />} placeholder="owner@salon.com" size="large" />
         </Form.Item>
 
         <Form.Item
@@ -78,32 +65,15 @@ export default function LoginPage() {
           label={t('password')}
           rules={[{ required: true, message: c('required') }]}
         >
-          <Input.Password
-            prefix={<LockOutlined />}
-            placeholder="••••••••"
-            size="large"
-          />
+          <Input.Password prefix={<LockOutlined />} placeholder="••••••••" size="large" />
         </Form.Item>
 
-        <Form.Item
-          name="subdomain"
-          label={t('subdomain')}
-        >
-          <Input
-            prefix={<GlobalOutlined />}
-            placeholder="yoursalon"
-            size="large"
-          />
+        <Form.Item name="subdomain" label={t('subdomain')}>
+          <Input prefix={<GlobalOutlined />} placeholder="yoursalon" size="large" />
         </Form.Item>
 
         <Form.Item className="mb-0">
-          <Button
-            type="primary"
-            htmlType="submit"
-            block
-            size="large"
-            loading={loading}
-          >
+          <Button type="primary" htmlType="submit" block size="large" loading={loading}>
             {loading ? t('signingIn') : t('signIn')}
           </Button>
         </Form.Item>

@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
-import { Card, Form, Input, Button, Typography, Divider, message, Segmented } from 'antd';
+import { Card, Form, Input, Button, Typography, Divider, message } from 'antd';
 import { MailOutlined, LockOutlined, UserOutlined, PhoneOutlined, BuildOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 import { api } from '@/lib/api/client';
@@ -57,28 +57,14 @@ export default function RegisterPage() {
   };
 
   return (
-    <Card
-      className="shadow-lg"
-      styles={{ body: { padding: '2rem' } }}
-    >
+    <Card className="shadow-lg" styles={{ body: { padding: '2rem' } }}>
       <div className="text-center mb-6">
         <Title level={2} className="mb-1">{t('register')}</Title>
         <Text type="secondary">Glamora</Text>
       </div>
 
-      <Form
-        form={form}
-        layout="vertical"
-        onFinish={handleRegister}
-        autoComplete="off"
-        requiredMark={false}
-        size="large"
-      >
-        <Form.Item
-          name="name_en"
-          label={t('nameEn')}
-          rules={[{ required: true, message: c('required') }]}
-        >
+      <Form form={form} layout="vertical" onFinish={handleRegister} autoComplete="off" requiredMark={false} size="large">
+        <Form.Item name="name_en" label={t('nameEn')} rules={[{ required: true, message: c('required') }]}>
           <Input prefix={<UserOutlined />} placeholder="John Doe" />
         </Form.Item>
 
@@ -86,11 +72,7 @@ export default function RegisterPage() {
           <Input placeholder="جون دو" />
         </Form.Item>
 
-        <Form.Item
-          name="company_name_en"
-          label={t('companyNameEn')}
-          rules={[{ required: true, message: c('required') }]}
-        >
+        <Form.Item name="company_name_en" label={t('companyNameEn')} rules={[{ required: true, message: c('required') }]}>
           <Input prefix={<BuildOutlined />} placeholder="My Golden Salon" />
         </Form.Item>
 
@@ -98,14 +80,7 @@ export default function RegisterPage() {
           <Input placeholder="صالوني الذهبي" />
         </Form.Item>
 
-        <Form.Item
-          name="email"
-          label={t('email')}
-          rules={[
-            { required: true, message: c('required') },
-            { type: 'email', message: 'validation.email' },
-          ]}
-        >
+        <Form.Item name="email" label={t('email')} rules={[{ required: true, message: c('required') }, { type: 'email', message: 'validation.email' }]}>
           <Input prefix={<MailOutlined />} placeholder="owner@salon.com" />
         </Form.Item>
 
@@ -113,42 +88,16 @@ export default function RegisterPage() {
           <Input prefix={<PhoneOutlined />} placeholder="+971 50 123 4567" />
         </Form.Item>
 
-        <Form.Item
-          name="password"
-          label={t('password')}
-          rules={[
-            { required: true, message: c('required') },
-            { min: 8, message: 'validation.minLength' },
-          ]}
-        >
+        <Form.Item name="password" label={t('password')} rules={[{ required: true, message: c('required') }, { min: 8, message: 'validation.minLength' }]}>
           <Input.Password prefix={<LockOutlined />} placeholder="••••••••" />
         </Form.Item>
 
-        <Form.Item
-          name="confirmPassword"
-          label={t('confirmPassword')}
-          dependencies={['password']}
-          rules={[
-            { required: true, message: c('required') },
-            ({ getFieldValue }) => ({
-              validator(_, value) {
-                if (!value || getFieldValue('password') === value) return Promise.resolve();
-                return Promise.reject(new Error('validation.passwordMatch'));
-              },
-            }),
-          ]}
-        >
+        <Form.Item name="confirmPassword" label={t('confirmPassword')} dependencies={['password']} rules={[{ required: true, message: c('required') }, ({ getFieldValue }) => ({ validator(_, value) { if (!value || getFieldValue('password') === value) return Promise.resolve(); return Promise.reject(new Error('validation.passwordMatch')); } })]}>
           <Input.Password prefix={<LockOutlined />} placeholder="••••••••" />
         </Form.Item>
 
         <Form.Item className="mb-0">
-          <Button
-            type="primary"
-            htmlType="submit"
-            block
-            size="large"
-            loading={loading}
-          >
+          <Button type="primary" htmlType="submit" block size="large" loading={loading}>
             {loading ? t('signingUp') : t('signUp')}
           </Button>
         </Form.Item>

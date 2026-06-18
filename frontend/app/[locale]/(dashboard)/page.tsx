@@ -2,13 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { Row, Col, Card, Statistic, Typography } from 'antd';
-import {
-  DollarOutlined,
-  CalendarOutlined,
-  TeamOutlined,
-  UserOutlined,
-  ArrowUpOutlined,
-} from '@ant-design/icons';
+import { DollarOutlined, CalendarOutlined, TeamOutlined, UserOutlined, ArrowUpOutlined } from '@ant-design/icons';
 
 const { Title } = Typography;
 
@@ -25,38 +19,25 @@ export default function DashboardPage() {
   return (
     <div>
       <Title level={4} className="mb-6">{t('title')}</Title>
-
       <Row gutter={[16, 16]}>
         {stats.map((stat) => (
           <Col xs={24} sm={12} lg={6} key={stat.title}>
             <Card hoverable>
-              <Statistic
-                title={stat.title}
-                value={stat.value}
-                prefix={stat.icon}
-                valueStyle={{ color: stat.color }}
-              />
-              <div className="mt-2 text-xs text-gray-400">
-                <ArrowUpOutlined /> 0% {t('compareLastPeriod')}
-              </div>
+              <Statistic title={stat.title} value={stat.value} prefix={stat.icon} valueStyle={{ color: stat.color }} />
+              <div className="mt-2 text-xs text-gray-400"><ArrowUpOutlined /> 0% {t('compareLastPeriod')}</div>
             </Card>
           </Col>
         ))}
       </Row>
-
       <Row gutter={[16, 16]} className="mt-6">
         <Col xs={24} lg={16}>
           <Card title={t('appointments')}>
-            <div className="h-64 flex items-center justify-center text-gray-400">
-              {t('noData')}
-            </div>
+            <div className="h-64 flex items-center justify-center text-gray-400">{t('noData')}</div>
           </Card>
         </Col>
         <Col xs={24} lg={8}>
           <Card title={t('reports')}>
-            <div className="h-64 flex items-center justify-center text-gray-400">
-              {t('noData')}
-            </div>
+            <div className="h-64 flex items-center justify-center text-gray-400">{t('noData')}</div>
           </Card>
         </Col>
       </Row>
